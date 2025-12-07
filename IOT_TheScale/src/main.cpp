@@ -31,9 +31,10 @@ void setup() {
   
   Serial.println("\n=== CAN DIEN TU 5KG ===");
   
-  // Khởi tạo Buzzer
+  // Khởi tạo Buzzer - logic ngược (HIGH = tắt, LOW = kêu)
   pinMode(BUZZER_PIN, OUTPUT);
-  digitalWrite(BUZZER_PIN, LOW);
+  digitalWrite(BUZZER_PIN, HIGH);  // Tắt buzzer
+  delay(100);
   
   // Khởi tạo LCD
   Wire.begin(SDA_PIN, SCL_PIN);
@@ -74,7 +75,7 @@ void setup() {
   lcd.setCursor(0, 1);
   lcd.print("Dang TARE...");
   
-  delay(3000);
+  delay(2000);
   scale.tare();
   
   Serial.println("TARE thanh cong!");
@@ -103,11 +104,11 @@ void loop() {
     
     // Cảnh báo nếu vượt ngưỡng - kêu nhẹ 1 tiếng bíp ngắn
     if (weight >= WEIGHT_THRESHOLD) {
-      digitalWrite(BUZZER_PIN, HIGH);
+      digitalWrite(BUZZER_PIN, LOW);   // Kêu
       delay(50);  // Chỉ kêu 50ms (rất ngắn)
-      digitalWrite(BUZZER_PIN, LOW);
+      digitalWrite(BUZZER_PIN, HIGH);  // Tắt
     } else {
-      digitalWrite(BUZZER_PIN, LOW);
+      digitalWrite(BUZZER_PIN, HIGH);  // Tắt
     }
     
     // Hiển thị trên LCD
