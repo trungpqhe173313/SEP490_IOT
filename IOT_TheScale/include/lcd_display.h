@@ -63,6 +63,51 @@ public:
      * @param on true = bật, false = tắt
      */
     void backlight(bool on = true);
+    
+    /**
+     * Hiển thị thông tin kết nối WiFi
+     */
+    void showConnectingWiFi();
+    void showWiFiConnected();
+    void showWiFiError();
+    
+    /**
+     * Hiển thị thông tin sản phẩm
+     * @param productName Tên sản phẩm
+     * @param targetWeight Trọng lượng mục tiêu (gram)
+     * @param currentIndex Chỉ số sản phẩm hiện tại (1-based)
+     * @param totalProducts Tổng số sản phẩm
+     */
+    void showProduct(const String& productName, float targetWeight, int currentIndex, int totalProducts);
+    
+    /**
+     * Hiển thị trọng lượng đang cân với target
+     * @param currentWeight Trọng lượng hiện tại
+     * @param targetWeight Trọng lượng mục tiêu
+     */
+    void showWeightWithTarget(float currentWeight, float targetWeight);
+    
+    /**
+     * Hiển thị đầy đủ: tên sản phẩm + trọng lượng + %
+     * Format: Dòng 1: Tên sản phẩm [X/Y]
+     *         Dòng 2: 1234/1500g  82%
+     * @param productName Tên sản phẩm
+     * @param currentWeight Trọng lượng hiện tại (gram)
+     * @param targetWeight Trọng lượng mục tiêu (gram)
+     * @param currentIndex Chỉ số sản phẩm hiện tại (1-based)
+     * @param totalProducts Tổng số sản phẩm
+     */
+    void showProductWithWeight(const String& productName, float currentWeight, float targetWeight, int currentIndex, int totalProducts);
+    
+    /**
+     * Hiển thị thông báo đã chốt bao
+     */
+    void showPackageConfirmed();
+    
+    /**
+     * Hiển thị thông báo chờ production
+     */
+    void showWaitingProduction();
 };
 
 #endif // LCD_DISPLAY_H
