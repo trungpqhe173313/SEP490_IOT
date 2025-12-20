@@ -41,6 +41,9 @@
 // Ngưỡng cảnh báo (gram)
 #define WEIGHT_THRESHOLD    360.0f
 
+// Ngưỡng sai số cho phép (gram) - chỉ gửi khi trong khoảng ±500g so với target
+#define WEIGHT_TOLERANCE    500.0f
+
 // ===== CẤU HÌNH GIAO TIẾP =====
 // Tốc độ Serial Monitor
 #define SERIAL_BAUD_RATE    115200

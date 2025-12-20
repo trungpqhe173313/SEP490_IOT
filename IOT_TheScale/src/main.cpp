@@ -273,6 +273,27 @@ void loop() {
       return;
     }
     
+    // Kiểm tra trọng lượng có nằm trong khoảng ±2g so với target không
+    float targetWeight = currentProduction.products[currentProductIndex].targetWeight;
+    float weightDiff = abs(weight - targetWeight);
+    
+    if (weightDiff > WEIGHT_TOLERANCE) {
+      Serial.print("Trong luong chenh lech qua lon! Chenh: ");
+      Serial.print(weightDiff, 1);
+      Serial.print("g (cho phep: +- ");
+      Serial.print(WEIGHT_TOLERANCE, 1);
+      Serial.println("g)");
+      
+      display.showError("Sai +- 2g!");
+      buzzer.beep();
+      delay(1500);
+      return;
+    }
+    
+    Serial.print("Trong luong OK! Chenh: ");
+    Serial.print(weightDiff, 1);
+    Serial.println("g");
+    
     // Hiển thị đang gửi
     display.showPackageConfirmed();
     buzzer.beep();
