@@ -284,7 +284,7 @@ void loop() {
       Serial.print(WEIGHT_TOLERANCE, 1);
       Serial.println("g)");
       
-      display.showError("Sai +- 2g!");
+      display.showError("Sai +-5g!");
       buzzer.beep();
       delay(1500);
       return;
@@ -341,7 +341,7 @@ void loop() {
     } else if (result.statusCode == 403) {
       // 403 - Device không được assign
       Serial.println("Device khong duoc gan! Quet lai QR...");
-      display.showError("Quet lai QR!");
+      display.showError("Device khong duoc gan!");
       buzzer.beep();
       delay(3000);
       
@@ -376,8 +376,8 @@ void loop() {
     currentProduction.productCount
   );
   
-  // Cảnh báo nếu vượt target + 10%
-  if (weight > targetWeight * 1.1) {
+  // Cảnh báo nếu quá cân (vượt target + WEIGHT_TOLERANCE)
+  if (weight > targetWeight + WEIGHT_TOLERANCE) {
     buzzer.beep();
   }
   

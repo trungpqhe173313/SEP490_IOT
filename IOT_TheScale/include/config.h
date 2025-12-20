@@ -67,7 +67,7 @@
 #define WIFI_TIMEOUT_MS         20000  // 20 giây timeout
 
 // ===== CẤU HÌNH API =====
-#define API_BASE_URL            "http://192.168.3.101:5224"
+#define API_BASE_URL            "http://192.168.3.106:5224"
 #define API_TIMEOUT_MS          5000
 #define DEVICE_CODE             "SCALE_01"
 #define PRODUCTION_CHECK_INTERVAL_MS  10000  // Kiểm tra production mỗi 10s
