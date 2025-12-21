@@ -62,12 +62,12 @@
 #define BUZZER_ACTIVE_HIGH      false
 
 // ===== CẤU HÌNH WIFI =====
-#define WIFI_SSID               "GIANG"
-#define WIFI_PASSWORD           "giang123"
+#define WIFI_SSID               "Trung's Galaxy A14"
+#define WIFI_PASSWORD           "12345678"
 #define WIFI_TIMEOUT_MS         20000  // 20 giây timeout
 
 // ===== CẤU HÌNH API =====
-#define API_BASE_URL            "http://192.168.3.106:5224"
+#define API_BASE_URL            "http://10.183.225.128:5224"
 #define API_TIMEOUT_MS          5000
 #define DEVICE_CODE             "SCALE_01"
 #define PRODUCTION_CHECK_INTERVAL_MS  10000  // Kiểm tra production mỗi 10s
